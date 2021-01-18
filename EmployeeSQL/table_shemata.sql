@@ -23,21 +23,27 @@ CREATE TABLE Employees(
 );
 
 CREATE TABLE Salaries(
+    id SERIAL,
     emp_no INT NOT NULL,
     salary INT NOT NULL,
+    PRIMARY KEY (id),
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no)
 );
 
 CREATE TABLE Dept_Emp(
+    id SERIAL,
     emp_no INT NOT NULL,
     dept_no VARCHAR(255),
+    PRIMARY KEY (id),
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no),
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no)
 );
 
 CREATE TABLE Dept_Manager(
+    id SERIAL,
     dept_no VARCHAR(255),
     emp_no INT NOT NULL,
+    PRIMARY KEY(id),
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no),
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no)
 );
